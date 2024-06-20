@@ -1,0 +1,274 @@
+/* Main CSS */
+
+/* Body styling */
+body {
+    background-color: #16213e;
+    color: #fefefe;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    overflow-x: hidden; /* Hide horizontal overflow */
+}
+
+/* Header styling */
+header {
+    height: 150px;
+    background-color: #1a1a2e;
+    color: #e94560;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px; /* Space below header */
+}
+
+/* H1 styling */
+h1 {
+    font-family: 'Rowdies', cursive;
+    margin-top: 0; /* Remove default margin */
+}
+
+/* Button styling */
+.button {
+    border-radius: 10px;
+    margin: 0.5rem; /* Adjusted button margin */
+    background-color: #e94560;
+    padding: 10px 20px;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border: 2px solid transparent;
+    position: relative;
+    overflow: hidden;
+}
+
+.button:hover {
+    background-color: #c43a53;
+}
+
+.button::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    bottom: -2px;
+    right: -2px;
+    background: linear-gradient(45deg, #00ff00, #ff00ff, #0000ff, #00ffff);
+    background-size: 400%;
+    z-index: -1;
+    transition: background-position 0.6s;
+    border-radius: 10px;
+}
+
+.button:hover::before {
+    background-position: 100%;
+}
+
+/* Note styling */
+.note {
+    font-size: 0.8rem;
+}
+
+.note-div {
+    margin-bottom: 10px; /* Space below note */
+}
+
+/* Label styling */
+label {
+    color: #fefefe;
+}
+
+/* Select field styling */
+select {
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 16px;
+    width: 100%;
+    max-width: 300px; /* Limit width for better mobile view */
+    margin-bottom: 20px; /* Space below select field */
+}
+
+/* Form styling */
+.input-box {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 4px solid #0f3460;
+    border-radius: 20px;
+    padding: 20px;
+    margin-bottom: 20px; /* Space below form */
+}
+
+/* Footer styling */
+.home-footer,
+.workout-footer {
+    height: 100px;
+    background-color: #1a1a2e;
+    color: #e94560;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: sticky;
+    bottom: 0;
+}
+
+/* Button section styling */
+#return {
+    margin: 10px 0; /* Top and bottom margin */
+}
+
+/* Output box styling */
+.output-box {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 4px solid #0f3460;
+    border-radius: 20px;
+    padding: 20px;
+    margin-bottom: 20px; /* Space below output box */
+    height: 350px;
+    overflow-y: auto; /* Add scrollbar if content exceeds box height */
+}
+
+/* Song playlist box styling */
+#song-playlist {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 4px solid #0f3460;
+    border-radius: 20px;
+    padding: 20px;
+    margin-top: 10px; /* Space above song playlist */
+    margin-bottom: 20px; /* Space below song playlist */
+    height: 400px;
+    overflow-y: auto; /* Add scrollbar if content exceeds box height */
+}
+
+/* Table styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table th,
+table td {
+    padding: 10px;
+    text-align: center;
+}
+
+table tr:nth-of-type(odd) {
+    background-color: #191414;
+}
+
+table tr:nth-of-type(even) {
+    background-color: #1f1a1a;
+}
+
+/* Iframe styling */
+iframe {
+    border-radius: 20px;
+    width: 100%; /* Make iframe responsive */
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #1f1a1a;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #0f3460;
+    border-radius: 10px;
+}
+
+/* Snackbar styling */
+.snackbar {
+    visibility: hidden;
+    min-width: 40vw;
+    margin-left: -20vw;
+    background-color: #e94560;
+    color: #fff;
+    text-align: center;
+    font-size: 1.3em;
+    border-radius: 20px;
+    padding: 16px;
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    bottom: 30px;
+}
+
+.snackbar-show {
+    visibility: visible;
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 1.5s;
+    animation: fadein 0.5s, fadeout 0.5s 1.5s;
+}
+
+/* Animation keyframes */
+@-webkit-keyframes fadein {
+    from {
+        bottom: 0;
+        opacity: 0;
+    }
+
+    to {
+        bottom: 30px;
+        opacity: 1;
+    }
+}
+
+@keyframes fadein {
+    from {
+        bottom: 0;
+        opacity: 0;
+    }
+
+    to {
+        bottom: 30px;
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes fadeout {
+    from {
+        bottom: 30px;
+        opacity: 1;
+    }
+
+    to {
+        bottom: 0;
+        opacity: 0;
+    }
+}
+
+@keyframes fadeout {
+    from {
+        bottom: 30px;
+        opacity: 1;
+    }
+
+    to {
+        bottom: 0;
+        opacity: 0;
+    }
+}
+
+/* Media queries for responsiveness */
+@media screen and (max-width: 768px) {
+    /* Adjustments for smaller screens */
+    .input-box,
+    .output-box,
+    #song-playlist {
+        height: auto; /* Allow content to dictate height */
+    }
+
+    select {
+        max-width: 100%; /* Full width on smaller screens */
+    }
+}
+
+/* Adjustments for very small screens */
+@media screen and (max-width: 480px) {
+    .button {
+        margin: 0.5rem 0;
+    }
+}
+.bxx{
+    gap: 50px;
+}

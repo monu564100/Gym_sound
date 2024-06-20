@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Font_Awesome_5_solid_dumbbell.svg/1279px-Font_Awesome_5_solid_dumbbell.svg.png" type="image/x-icon">
+    <title>GymSound</title>
+    <!-- Link to Foundation CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation.min.css" integrity="sha256-ogmFxjqiTMnZhxCqVmcqTvjfe1Y/ec4WaRj/aQPvn+I=" crossorigin="anonymous" />
+    <!-- Link to Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Rowdies:wght@700&display=swap" rel="stylesheet">
+    <!-- Link to CSS sheet -->
+    <link rel="stylesheet" href="main.css" />
+</head>
+<body class="grid-x grid-padding">
+<!-- header -->
+<header class="row grid-x small-12 align-center align-middle">
+
+    <h1>Gym&nbsp;</h1><i class="fad fa-dumbbell fa-4x"></i>
+    <h1>&nbsp;Sound</h1>
+
+</header>
+<!-- Headline -->
+<div class="grid-x small-12 align-center align-middle">
+    <h3>Choose Your Workout</h3>
+</div>
+<!-- form -->
+<form class="row grid-x grid-padding small-12 medium-8 large-6 medium-offset-2 large-offset-3 input-box align-center align-middle">
+    <!-- type of workout -->
+    <div class="row small-12 medium-8">
+        <label>Type of Workout
+      <select id="type" class="workout">
+        <option class="type" value="8">Arms</option>
+        <option class="type" value="9">Legs</option>
+        <option class="type" value="10">Abs</option>
+        <option class="type" value="11">Chest</option>
+        <option class="type" value="12">Back</option>
+        <option class="type" value="13">Shoulders</option>
+      </select>
+    </label>
+    </div>
+    <!-- workout intensity -->
+    <div class="row small-12 medium-8">
+        <label>Workout Intensity
+      <select id="intensity" class="workout">
+        <option class="intensity" value="easy">Easy</option>
+        <option class="intensity" value="medium">Medium</option>
+        <option class="intensity" value="hard">Hard</option>
+      </select>
+    </label>
+    </div>
+    <!-- music selection -->
+    <div class="row small-12 medium-8">
+        <label>Music Genre
+      <select id="genre">
+        <option class="music" value="hiphop">Hip Hop</option>
+        <option class="music" value="workout">Workout</option>
+        <option class="music" value="pop">Pop</option>
+        <option class="music" value="kpop">K Pop</option>
+        <option class="music" value="rock">Rock</option>
+        <option value = "playlist" hidden>Playlist selected</option>
+      </select>
+    </label>
+    </div>
+    <!-- buttons -->
+    <div class="row grid-x small-12 align-center bxx">
+        <button type="button" class="button left" id="start">Get_Songs</button>
+        <button type="button" class="button center" id="random">Random_Songs</button>
+        <!-- <button type="button" class="button center" data-open="load-modal">Load</button>
+        <button type="button" class="button right" id="clear" disabled>Clear</button> -->
+    </div>
+
+    <div class="reveal" id="load-modal" data-reveal>
+      <div class="row">
+        <h2>Saved Playlists</h2>
+        
+      </div>
+      <div class="row note-div"><p class ="note">Note: if a setting is loaded, clicking "Random" will randomize the unloaded setting(s)</p></div>
+      <div class="row grid-x">
+        <div class="columns small-10 large-6 small-offset-1 large-offset-3">
+          <select id ="saved-playlists">
+            <option value="" selected>&nbsp;</option>
+          </select>
+        </div>
+        <div class="columns small-1">
+          <button class="delete" id="delete-playlist">
+            <i class="fas fa-trash-alt"></i>
+          </button>
+        </div>
+      </div>
+      <div class="row">
+        <h2>Saved Workouts</h2>
+      </div>
+      <div class="row grid-x">
+        <div class="columns small-10 large-6 small-offset-1 large-offset-3">
+          <select id ="saved-workouts">
+            <option value="" selected>&nbsp;</option>
+          </select>
+        </div>
+        <div class="columns small-1">
+          <button class="delete" id="delete-workout">
+            <i class="fas fa-trash-alt"></i>
+          </button>
+        </div>
+      </div>
+      <div class="row">
+        <h2>Saved Playlists + Workouts</h2>
+      </div>
+      <div class="row grid-x">
+        <div class="columns small-10 large-6 small-offset-1 large-offset-3">
+          <select id ="saved-combos">
+            <option value="" selected>&nbsp;</option>
+          </select>
+        </div>
+        <div class="columns small-1">
+          <button class="delete" id="delete-combo">
+            <i class="fas fa-trash-alt"></i>
+          </button>
+        </div>
+      </div>
+      <div class="row">
+        <button type="button" class="button" id="load" data-close disabled>Load</button>
+      </div>
+      <button class="close-button" data-close aria-label="Close modal" type="button">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+
+</form>
+
+<div class="snackbar" id="snackbar-playlist-load">Playlist loaded</div>
+
+<div class="snackbar" id="snackbar-workout-load">Workout loaded</div>
+
+<div class="snackbar" id="snackbar-clear">Settings cleared</div>
+
+<div class="snackbar" id="snackbar-delete-playlist">Saved playlist deleted</div>
+
+<div class="snackbar" id="snackbar-delete-workout">Saved workout deleted</div>
+
+<div class="snackbar" id="snackbar-delete-combo">Saved playlist and workout deleted</div>
+
+<!-- footer -->
+<footer class="home-footer row grid-x small-12 align-center align-middle">
+    <p> &#169;GymSound</p>
+</footer>
+
+<!-- Fontawesome Script -->
+<script src="https://kit.fontawesome.com/c7d28a1474.js" crossorigin="anonymous"></script>
+<!-- jQuery -->
+<script language="JavaScript" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!-- Link to Foundation Javascript -->
+<script
+  src="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/js/foundation.min.js"
+  integrity="sha256-pRF3zifJRA9jXGv++b06qwtSqX1byFQOLjqa2PTEb2o="
+  crossorigin="anonymous"
+></script>
+<!-- main js -->
+<script src="main.js"></script>
+</body>
+</html>
